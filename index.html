@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Starter Template for Bootstrap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css" />
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-XI0PIujkSZEzZ5m8WTEm+krRuIpfO+vHrEznaIrhTAkbrbIvfs11kzCqUarPR7yn" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="assets/css/feel-search.css" rel="stylesheet">
+</head>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Search Your Feelings, You Know Them To Be True</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li> -->
+        </ul>
+        <form id="feels-form" class="form-inline my-2 my-lg-0">
+            <input id="feels-input" class="form-control mr-sm-2" type="text" placeholder="What's your Feels...&#63;" aria-label="Search">
+            <button id="add-feels" class="btn btn-outline-success my-2 my-sm-0" type="submit">Add A Catagory</button>
+        </form>
+    </div>
+</nav>
+
+<body>
+    <div role="main" class="container">
+        <div class="row">
+            <div class="col-md-1"> </div>
+            <div class="col-md-10">
+                <div class="btn-toolbar text-center well">
+                    <div id="buttonSet"></div>
+                </div>
+                <div class="card-deck" id="gifs-appear-here">
+
+                    <div class="card">
+                        <h3 class="card-header">HUH?</h3><img src="https://media0.giphy.com/media/kaq6GnxDlJaBq/200.gif?cid=e1bb72ff5a5ad6044b45434f630e3274" data-animate="https://media0.giphy.com/media/kaq6GnxDlJaBq/200.gif?cid=e1bb72ff5a5ad6044b45434f630e3274" data-still="https://media0.giphy.com/media/kaq6GnxDlJaBq/200_s.gif?cid=e1bb72ff5a5ad6044b45434f630e3274" data-state="animate" class="gif card-img-top img-fluid">
+                        <div class="card-body">
+                            <p class="card-text">Don't worry, it's simple!</p>
+                        </div>
+                        <div class="card-footer text-muted">Rating: Awesome <i class="fa pull-right fa-clipboard fa-fw" aria-hidden="true"></i> &nbsp;&nbsp; <i class="fa pull-right fa-external-link-square fa-fw" aria-hidden="true"></i></div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-header">HMM...</h3><img src="https://media3.giphy.com/media/12qRcaFWzF5yik/200.gif?cid=e1bb72ff5a5ae0846d6a4f506fbdb495" data-animate="https://media3.giphy.com/media/12qRcaFWzF5yik/200.gif?cid=e1bb72ff5a5ae0846d6a4f506fbdb495" data-still="https://media3.giphy.com/media/12qRcaFWzF5yik/200_s.gif?cid=e1bb72ff5a5ae0846d6a4f506fbdb495" data-state="animate" class="gif card-img-top img-fluid">
+                        <div class="card-body">
+                            <p class="card-text">Click one of the buttons above to load a set of gifs.</p>
+                        </div>
+                        <div class="card-footer text-muted">Rating: Tremendous</div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-header">EASY!</h3><img src="https://media1.giphy.com/media/3o7btNa0RUYa5E7iiQ/200.gif?cid=e1bb72ff5a5ae010376461366bfc8583" data-animate="https://media1.giphy.com/media/3o7btNa0RUYa5E7iiQ/200.gif?cid=e1bb72ff5a5ae010376461366bfc8583" data-still="https://media1.giphy.com/media/3o7btNa0RUYa5E7iiQ/200_s.gif?cid=e1bb72ff5a5ae010376461366bfc8583" data-state="animate" class="gif card-img-top img-fluid">
+                        <div class="card-body">
+                            <p class="card-text">Add a button by using the search box at top right.</p>
+                        </div>
+                        <div class="card-footer text-muted">Rating: Extraordinary</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <!--     <main role="main" class="container">
+
+      <div class="starter-template">
+        <h1>Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document. 
+        Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.
+    Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.
+Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.
+Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.
+Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.
+Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      </div>
+
+    </main> -->
+    <!-- /.container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/c0a329ab7d.js"></script>
+    <script src="assets/javascript/giphyApp.js"></script>
+    <!--     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script> -->
+</body>
+
+</html>
