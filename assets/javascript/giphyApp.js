@@ -20,7 +20,7 @@ function renderButtons() {
 
 }
 
-
+// reset the form
 function resetForm($form) {
     $form.find('input:text').val('');
 
@@ -40,17 +40,20 @@ $("#add-feels").on("click", function(event) {
     feelses.push(feels);
     // The renderButtons function is called, rendering the list of feels buttons
     renderButtons();
-    // 
+    // reset that form
     resetForm($('#feels-form'));
 
 });
 
-
+// when click on one of the feelings buttons, perform search
 $(document).on('click', '.search-feels', function() {
+    // grab the attribute name of our button 
     searchClick = $(this).attr("name");
-    console.log(searchClick);
+    // drop that attribute name into our query URL 
     queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchClick + "&api_key=dc6zaTOxFJmzC&limit=10";
+    // empty our div where gifs appear (the bootstrap cards-column feature we're using has awkward results if we just keep piling on the gifs)
     $('#gifs-appear-here').empty();
+    // trigger the search for gifs.
     searchfeels();
 
 });
@@ -58,89 +61,45 @@ $(document).on('click', '.search-feels', function() {
 // Calling the renderButtons function to display the initial list of feelses
 renderButtons();
 
-
+// giphy search and results build
 function searchfeels() {
-
+    // trigger the giphy search
     $.ajax({
         url: queryURL,
         method: "GET"
     }).done(function(response) {
-
-        console.log(queryURL);
-        console.log(response);
-
+        //  store response in a variable
         var results = response.data;
-        $("#gifs-appear-here").removeClass( "card-deck" ).addClass( "card-columns" );
-
+        // swop out the class for area where gifs appear (for formatting)
+        $("#gifs-appear-here").removeClass("card-deck").addClass("card-columns");
+        // cycle thru results of giphy search and generate bootstrap cards with giphy results in them
         for (var i = 0; i < results.length; i++) {
-
-
-            // var feelsDiv = $("<div>");
-            // var p = $("<p>");
-
-            // p.text("Rating: " + results[i].rating);
-
-            // var feelsImage = $("<img>");
-            // feelsImage.attr("src", results[i].images.fixed_height_still.url);
-            // feelsImage.attr("data-animate", results[i].images.fixed_height.url);
-            // feelsImage.attr("data-still", results[i].images.fixed_height_still.url);
-            // feelsImage.attr("data-state", "still");
-            // feelsImage.attr("class", "gif");
-
-            // feelsDiv.append(p);
-            // feelsDiv.append(feelsImage);
-
-            // $("#gifs-appear-here").prepend(feelsDiv);
-
+            // i know this is ugly.
             $('#gifs-appear-here').prepend('<div class="card ">' +
                 '<h3 class="card-header">' + searchClick + '</h3>' +
                 '<img src ="' + results[i].images.fixed_height_still.url + '" data-animate="' + results[i].images.fixed_height.url +
-                '" data-still="' + results[i].images.fixed_height_still.url + '" data-state="still" class="gif card-img-top img-fluid">' + 
+                '" data-still="' + results[i].images.fixed_height_still.url + '" data-state="still" class="gif card-img-top img-fluid">' +
                 '<div class="card-body">' +
                 '<p class="card-text">' + results[i].title + '</div>' +
                 '<div class="card-footer text-muted">' + "Rating: " + results[i].rating +
                 '</div>' + '</div>' + '</div>'
 
             );
-
-
         }
-
-
     });
-
 }
 
 
-
+// function which reacts to a gif-click by swopping out its state and source, such that it will animage or still
 $(document).on('click', '.gif', function() {
-    // STEP ONE: study the html.
-    // Look at all the data attributes.
-    // Run the file in the browser. Look at the images.
-
-    // After we complete steps 1 and 2 we'll be able to pause gifs from giphy.
-
-    // STEP TWO: make a variable named state and then store the image's data-state into it.
-    // Use the .attr() method for this.
-
-    // ============== FILL IN CODE HERE FOR STEP TWO =========================
+    // a variable named state and store the image's data-state into it.
 
     var state = $(this).attr("data-state");
     var anim = $(this).attr("data-animate");
     var stil = $(this).attr("data-still");
-
-
-    // CODE GOES HERE
-
-    // =============================================
-
-    // STEP THREE: Check if the variable state is equal to 'still',
-    // then update the src attribute of this image to it's data-animate value,
+    // Check if the variable state is equal to 'still', then update the src attribute of this image to it's data-animate value,
     // and update the data-state attribute to 'animate'.
-
-    // If state is equal to 'animate', then update the src attribute of this
-    // image to it's data-still value and update the data-state attribute to 'still'
-    // ============== FILL IN CODE HERE FOR STEP THREE =========================
+    // If state is equal to 'animate', then update the src attribute image to it's data-still value and update the data-state attribute to 'still'
 
     if (state == "still") {
         console.log("animate triggered");
@@ -155,18 +114,7 @@ $(document).on('click', '.gif', function() {
         $(this).attr("data-state", "still");
     };
 
-
-
-
     // BETTER YET FOR THE ANIM SRC Change - kill those last two variables, 
     // and in the if/else: 
     // $(this).attr("src", $(this).attr("data-animate"));
-
-
-    // CODE GOES HERE
-
-    // ==============================================
-
-    // STEP FOUR: open the file in the browser and click on the images.
-    // Then click again to pause.
 });
